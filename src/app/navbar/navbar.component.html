@@ -5,8 +5,8 @@
       <li class="uk-active">
         <a routerLink="/">حرفة</a>
       </li>
-      <li><a routerLink="/register">تسجيل</a></li>
-      <li><a routerLink="/login">دخول</a></li>
+      <li *ngIf="!isLoggedIn"><a routerLink="/register">تسجيل</a></li>
+      <li *ngIf="!isLoggedIn"><a routerLink="/login">دخول</a></li>
 
       <li><a routerLink="/myskill">مهاراتي</a></li>
       <li><a routerLink="/allskills">المهارات</a></li>
@@ -18,7 +18,7 @@
     
       <ul class="uk-navbar-nav">
     
-        <li>
+        <li *ngIf="isLoggedIn">
           <a href="#">حسابي</a>
           <div class="uk-navbar-dropdown">
             <ul class="uk-nav uk-navbar-dropdown-nav">
@@ -26,7 +26,7 @@
                 <a routerLink="/addskill">أضف</a>
               </li>
               <li>
-                <a href="#">خروج</a>
+                <a href="#" (click)="logout()">خروج</a>
               </li>
     
             </ul>

@@ -77,7 +77,8 @@ export class MyskillComponent implements OnInit {
     }
     //console.log('name: ' + this.data.name + ' phone: ' + this.data.phone + ' email: ' + this.data.email + ' province: ' + this.data.province + ' skill: ' + this.data.skill + ' price: ' + this.data.price)
   onDelete($key) {
-    // console.log('delete')
+    this.itemList.remove($key);
+    this.itemArray = []
   }
 
   
