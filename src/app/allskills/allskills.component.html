@@ -9,15 +9,12 @@
   <table class="uk-table uk-table-striped">
     <thead>
       <tr>
-
         <th>name</th>
         <th>phone</th>
         <th>email</th>
         <th>province</th>
         <th>skill</th>
         <th>price</th>
-        <th>actions</th>
-
       </tr>
     </thead>
     <tbody>
@@ -29,54 +26,6 @@
         <td>{{item.province}}</td>
         <td>{{item.skill}}</td>
         <td>{{item.price}}</td>
-        <td>
-          <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #modal-example"
-            (click)="editForm(item.$key)">Edit</button>
-        </td>
-        <td>
-          <button class="uk-button uk-button-danger uk-button-small" (click)="onDelete(item.$key)">Delete</button>
-        </td>
-
-        <!-- This is the modal -->
-        <div id="modal-example" uk-modal>
-          <div class="uk-modal-dialog uk-modal-body">
-            <!--<h2 class="uk-modal-title">Edit Your Information</h2>-->
-
-
-            <fieldset class="uk-fieldset">
-
-              <div class="uk-margin">
-                <input class="uk-input" type="text" placeholder="الاسم" name="name" [(ngModel)]="data.name">
-              </div>
-              <div class=" uk-margin ">
-                <input class="uk-input " type="text " placeholder="البريد الألكتروني " name="email" [(ngModel)]="data.email">
-              </div>
-              <div class="uk-margin ">
-                <input class="uk-input " type="text " placeholder="رقم الهاتف " name="phone" [(ngModel)]="data.phone">
-              </div>
-              <div class="uk-margin ">
-                <input class="uk-input " type="text " placeholder="المحافظة " name="province" [(ngModel)]="data.province">
-              </div>
-              <div class="uk-margin ">
-                <input class="uk-input " type="text " placeholder="المهارة " name="skill" [(ngModel)]="data.skill">
-              </div>
-              <div class="uk-margin ">
-                <input class="uk-input " type="text " placeholder="السعر " name="price" [(ngModel)]="data.price">
-              </div>
-
-              <div class="uk-margin ">
-                <textarea class="uk-textarea " rows="5 " placeholder="ملاحظات " name="note" [(ngModel)]="data.note"></textarea>
-              </div>
-
-            </fieldset>
-
-
-            <p class="uk-text-right ">
-              <button class="uk-button uk-button-default uk-modal-close " type="button ">Cancel</button>
-              <button class="uk-button uk-button-primary " type="button " (click)="onEdit(item.$key) ">Save</button>
-            </p>
-          </div>
-        </div>
 
       </tr>
     </tbody>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 
 import {Router} from '@angular/router';
@@ -23,16 +24,31 @@ data = {
   price : '',
   note : ''
 }
-
-
+uid: any;
+email:string = '';
 itemList: AngularFireList<any>
 
-  constructor(public db: AngularFireDatabase, public router: Router ) {
+  constructor(private fire: AngularFireAuth,public db: AngularFireDatabase, public router: Router ) {
+    this.itemList = db.list('skills')
 
-  this.itemList = db.list('skills')
+    let user = localStorage.getItem('email')
+//    let user = this.fire.auth.currentUser.email
+    this.email = user
+    console.log(user)
+    console.log('_______________')
+
+    this.uid = localStorage.getItem('uid')
+    console.log('uid: ' + this.uid)
+    // this.fire.authState.subscribe(auth => { // this statement cheack "authState", (missing part about "subscribe" function)google it later,using an auth object as a parameter
+    //   if(auth){ // if "auth" return's true, then.
+    //     this.uid = auth.uid // put the uid value from DB in this varable.
+    //     console.log('uid: '+ this.uid)
+    //   }
+    // })
    }
 
   ngOnInit() {
+    
   }
 
   insertSkill(){

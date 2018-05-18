@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  public isLoggedIn: boolean;
   email: string = '';
   password: string = '';
 
@@ -20,11 +21,23 @@ export class LoginComponent implements OnInit {
   myLogin(){
     this.fire.auth.signInWithEmailAndPassword(this.email, this.password)
     .then(user =>{
+      
       console.log(this.email, this.password)
       localStorage.setItem('isLoggedIn', 'true')
-      this.router.navigate(['home'])
+      localStorage.setItem('email', this.fire.auth.currentUser.email)
+      
+      this.isLoggedIn = true;
+      
+      function refresh(): void {
+        window.location.reload();// to reload the page after logging in
+        
+      }
+      refresh();
+      
     }).catch(error =>{
      console.log(error)
-    })
+      });this.router.navigate(['/home'])
   }
+  
+
 }

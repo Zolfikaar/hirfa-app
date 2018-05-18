@@ -24,6 +24,8 @@ export class MyskillComponent implements OnInit {
     note: '',
   }
 
+  myUid:any;
+
   constructor(public db: AngularFireDatabase, public router: Router){
 
     this.itemList = db.list('skills')
@@ -37,7 +39,10 @@ export class MyskillComponent implements OnInit {
       })
     })
     // console.log(this.itemArray)
+    this.myUid = localStorage.getItem('uid')
+    console.log(this.itemArray)
    }
+
   ngOnInit() {
   }
 

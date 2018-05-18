@@ -23,7 +23,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of itemArray">
-      
+      <div *ngIf="item.uid === myUid">
       <td>{{item.name}}</td>
       <td>{{item.phone}}</td>
       <td>{{item.email}}</td>
@@ -32,7 +32,7 @@
       <td>{{item.price}}</td>
       <td><button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #modal-example" (click)="editForm(item.$key)">Edit</button></td>
       <td><button class="uk-button uk-button-danger uk-button-small" (click)="onDelete(item.$key)">Delete</button></td>
-      
+      </div>
       <!-- This is the modal -->
       <div id="modal-example" uk-modal>
         <div class="uk-modal-dialog uk-modal-body">
@@ -73,7 +73,7 @@
           </p>
         </div>
       </div>
-      
+       
     </tr>
   </tbody>
 </table>
